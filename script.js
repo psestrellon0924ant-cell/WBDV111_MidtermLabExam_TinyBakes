@@ -1,4 +1,3 @@
-// Cake data with detailed information
 const cakeData = {
   1: {
     title: "Sky Adventure Cake",
@@ -158,7 +157,6 @@ const cakeData = {
   }
 };
 
-// Modal functions
 function openModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
@@ -182,7 +180,6 @@ function closeAllModals() {
   document.body.style.overflow = '';
 }
 
-// Show cake details
 function showCakeDetails(cakeId) {
   const cake = cakeData[cakeId];
   if (!cake) return;
@@ -210,16 +207,14 @@ function showCakeDetails(cakeId) {
   document.getElementById('cakeDetailsContent').innerHTML = content;
   openModal('cakeDetailsModal');
 
-  // Add order now handler
   document.querySelector('.js-order-now').addEventListener('click', () => {
     closeAllModals();
     openModal('customInquiryModal');
   });
 }
 
-// Event listeners
 document.addEventListener('DOMContentLoaded', () => {
-  // Profile dropdown toggle
+
   const profileBtn = document.getElementById('profileBtn');
   const profileDropdown = document.querySelector('.profile-dropdown');
   
@@ -229,7 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
       profileDropdown.classList.toggle('active');
     });
 
-    // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
       if (!profileDropdown.contains(e.target)) {
         profileDropdown.classList.remove('active');
@@ -245,7 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // View cake details
   document.querySelectorAll('.js-view-cake').forEach(btn => {
     btn.addEventListener('click', (e) => {
       const card = e.target.closest('.birthday-card');
@@ -254,14 +247,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Close modal buttons
   document.querySelectorAll('.js-close-modal').forEach(btn => {
     btn.addEventListener('click', () => {
       closeAllModals();
     });
   });
 
-  // Close modal when clicking outside
   document.querySelectorAll('.modal').forEach(modal => {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
@@ -270,14 +261,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Form submissions
   document.getElementById('customInquiryForm').addEventListener('submit', (e) => {
     e.preventDefault();
     alert('Thank you for your inquiry! We will contact you within 24 hours.');
     closeAllModals();
   });
 
-  // Carousel functionality
   const track = document.querySelector('.design-track');
   const prevBtn = document.querySelector('.js-prev');
   const nextBtn = document.querySelector('.js-next');
